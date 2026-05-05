@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: mi_landing
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn mi_landing.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: mi_landing.settings
+      - key: PYTHON_VERSION
+        value: 3.12
